@@ -5,6 +5,7 @@ class ControllerCach {
 Buscar  (req, res) {
     try {
         const cachorro = ServiceCachorro.Buscar()
+
         res.send({ message: cachorro})
     } catch (error) { //esse aqui você não meche o resto sim , você ira fazer try cathc
         res.status(500).send({
@@ -19,6 +20,7 @@ Detalhe (req, res) {
         const id = req.params.id
 
         const cachorro = ServiceCachorro.Detalhe(id)
+
     } catch (error) {
         
     }
@@ -26,9 +28,9 @@ Detalhe (req, res) {
 
 Criar   (req, res) {
     try {
-    const { nome, dono, idade, qtdeBrinquedos}= req.body
+    const { id, nome, dono, idade, qtdeBrinquedos}= req.body
 
-    ServiceCachorro.Criar( nome, dono, idade, qtdeBrinquedos)
+    ServiceCachorro.Criar( id, nome, dono, idade, qtdeBrinquedos)
     
 
     res.send({message: "Cadastro com sucesso"})
@@ -61,7 +63,7 @@ Deletar (req,res) {
         res.send({message: "Deletado"})
     } catch (error) {
         res.status(500).send.message({
-            message: error.messageS
+            message: error.message
       }
      )
    }
