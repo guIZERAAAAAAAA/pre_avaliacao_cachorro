@@ -1,0 +1,71 @@
+import ServiceCachorro from "..Service/cachorro.js"
+
+class ControllerCach {
+
+Buscar  (req, res) {
+    try {
+        const cachorro = ServiceCachorro.Buscar()
+        res.send({ message: cachorro})
+    } catch (error) { //esse aqui você não meche o resto sim , você ira fazer try cathc
+        res.status(500).send({
+            message:error.message
+            }
+        )
+    }
+}
+
+Detalhe (req, res) {
+    try {
+        const id = req.params.id
+
+        const cachorro = ServiceCachorro.Detalhe(id)
+    } catch (error) {
+        
+    }
+}
+
+Criar   (req, res) {
+    try {
+    const { nome, dono, idade, qtdeBrinquedos}= req.body
+
+    ServiceCachorro.Criar( nome, dono, idade, qtdeBrinquedos)
+    
+
+    res.send({message: "Cadastro com sucesso"})
+} catch (error) {
+res.status(500).send({
+    message: error.message
+            }
+        )    
+    }
+}
+
+
+Alterar (res,req) {
+    try {
+        ServiceCachorro.Alterar
+    } catch (error) {
+        res.status(500).send({
+            message: error.message
+           }
+        )
+    }
+}
+
+Deletar (req,res) { 
+    try {
+        const identificador = req.body.id
+
+        ServiceCachorro.Deletar(identificador)
+
+        res.send({message: "Deletado"})
+    } catch (error) {
+        res.status(500).send.message({
+            message: error.messageS
+      }
+     )
+   }
+  }
+}
+
+export default new ControllerCachorro()
