@@ -1,10 +1,10 @@
-import ServiceCachorro from "..Service/cachorro.js"
+import ControllerCachorro from "..controller/cachorro.js"
 
-class ControllerCach {
+class  ControllerCachorro { 
 
 Buscar  (req, res) {
     try {
-        const cachorro = ServiceCachorro.Buscar()
+        const cachorro = ControllerCachorro.Buscar()
 
         res.send({ message: cachorro})
     } catch (error) { //esse aqui você não meche o resto sim , você ira fazer try cathc
@@ -19,7 +19,7 @@ Detalhe (req, res) {
     try {
         const id = req.params.id
 
-        const cachorro = ServiceCachorro.Detalhe(id)
+        const cachorro = ControllerCachorro.Detalhe(id)
 
     } catch (error) {
         
