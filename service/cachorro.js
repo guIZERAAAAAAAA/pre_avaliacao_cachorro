@@ -10,7 +10,7 @@ Buscar  () {
 Detalhe (id) { 
 
     if (!id) {
-        throw Error("Favor informar id ")
+        throw new Error("Favor informar id ")
     }
 
     const cachorro = petshop.find(it => it.id ===id)
