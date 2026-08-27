@@ -14,6 +14,9 @@ service
 codigos base para começar 
 
 npm init 
+
+NAs coisas que tu tem que por depois de fazer o init , O _Type_ você tem que colocar module ( Do Renan )
+
 npm i express
 npm i 
 
